@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Nuke the standard labels so we start clean.
+gh label delete bug --yes
+gh label delete documentation --yes
+gh label delete duplicate --yes
+gh label delete enhancement --yes
+gh label delete "good first issue" --yes
+gh label delete "help wanted" --yes
+gh label delete invalid --yes
+gh label delete question --yes
+gh label delete wontfix --yes
+
+# Set up my preferred set of labels.
+gh label create Bug                --description "Something isn't working"                             --color d73a4a
+gh label create Documentation      --description "Improvements or additions to documentation"          --color 0075ca
+gh label create Duplicate          --description "This issue or pull request already exists"           --color cfd3d7
+gh label create Enhancement        --description "New feature or request"                              --color a2eeef
+gh label create Invalid            --description "This issue or PR doesn't make any sense"             --color e4e669
+gh label create Question           --description "Further information is requested"                    --color d876e3
+gh label create "Won't Fix"        --description "This will not be worked on"                          --color ffffff
+gh label create Cosmetic           --description "All things relating to the look of the application"  --color BCE3D2
+gh label create "Priority: Low"    --description "One day, maybe..."                                   --color 0E8A16
+gh label create "Priority: Medium" --description "Soon..."                                             --color FBCA04
+gh label create "Priority: High"   --description "I really want to get to this right away (ish)"       --color ff0000
+gh label create Housekeeping       --description "General codebase housekeeping"                       --color DF457D
+gh label create TODO               --description "A thing I'm planning on doing"                       --color 0CAC2B
+
+### setup-standard-labels ends here
