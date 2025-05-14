@@ -1,15 +1,10 @@
 #!/bin/sh
 
-# Nuke the standard labels so we start clean.
-gh label delete bug --yes
-gh label delete documentation --yes
-gh label delete duplicate --yes
-gh label delete enhancement --yes
-gh label delete "good first issue" --yes
-gh label delete "help wanted" --yes
-gh label delete invalid --yes
-gh label delete question --yes
-gh label delete wontfix --yes
+# Nuke the existing labels.
+gh label list --json name --template '{{range .}}{{ .name }}{{"\n"}}{{end}}' | while read -r label
+do
+    gh label delete "$label" --yes
+done
 
 # Set up my preferred set of labels.
 gh label create Bug                --description "Something isn't working"                             --color d73a4a
